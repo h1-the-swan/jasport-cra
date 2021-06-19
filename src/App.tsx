@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import {
   Layout,
   Typography,
+  List,
   Row,
   Col,
   Card,
@@ -13,6 +14,8 @@ import {
 import Cite from "citation-js";
 import "./App.css";
 import thumbCitationVis from "./images/citationvis_thumb.png";
+import thumbBookStacks from "./images/book_stacks_thumb.jpg";
+import thumbSciSight from "./images/scisight1.png";
 
 const { Header, Footer, Content } = Layout;
 const { Paragraph, Link, Title } = Typography;
@@ -20,10 +23,10 @@ const { Paragraph, Link, Title } = Typography;
 interface Project {
   label: string;
   name: string;
+  citationKey?: string;
   description: React.ReactNode | string;
   img?: any;
   imgAltText?: string;
-  citationKey?: string;
 }
 
 const tags = [
@@ -37,6 +40,7 @@ const projects: Project[] = [
     label: "autoreview",
     name: "Automated literature review",
     citationKey: "portenoy_constructing_2020",
+    img: thumbBookStacks,
     description: (
       <React.Fragment>
         <em>Autoreview</em> is a framework for building and evaluating systems
@@ -54,6 +58,7 @@ const projects: Project[] = [
     label: "scisight",
     name: "SciSight",
     citationKey: "hope_scisight_2020",
+    img: thumbSciSight,
     description: (
       <React.Fragment>
         We extend the SciSight literature visualization platform to support
@@ -99,11 +104,14 @@ const App: React.FC = () => {
       .then((text) => {
         const myPubs = new Cite(text);
         setPubs(myPubs);
-        console.log(myPubs);
-        // const pub = pubs.format("bibliography", {
-        //   entry: "portenoy_leveraging_2017",
-        // });
-        // console.log(pub);
+        const x = myPubs.format("bibliography", {
+          entry: projects[0].citationKey,
+          format: "html",
+          // style: "csl",
+          // type: "html",
+        });
+        console.log(x);
+        console.log(typeof x);
       });
   }, []); // this runs when the component first mounts
 
@@ -118,37 +126,67 @@ const App: React.FC = () => {
           title={<Title>Jason Portenoy, PhD</Title>}
           tags={tags}
           backIcon={false}
-          ghost={true}
-        />
+          ghost={false}
+        >
+          <List>
+            <li>jporteno[@]uw[.]edu</li>
+            <li>
+              Github:{" "}
+              <Link href="https://github.com/h1-the-swan" target="_blank">
+                h1-the-swan
+              </Link>
+            </li>
+            <li>
+              Twitter:{" "}
+              <Link href="http://twitter.com/jportenoy" target="_blank">
+                @jportenoy
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://www.linkedin.com/in/jason-portenoy/"
+                target="_blank"
+              >
+                LinkedIn
+              </Link>
+            </li>
+          </List>
+        </PageHeader>
+
         <Content>
-          {projects.map((project) => (
-            <Card title={project.name}>
-              {project.citationKey && pubs ? (
-                <p>
-                  {pubs.format("bibliography", {
-                    entry: project.citationKey,
-                  })}
-                </p>
-              ) : null}
-              <Row gutter={32}>
-                <Col md={16}>
+          <Row gutter={32}>
+            {projects.map((project) => (
+              <Col md={8}>
+                <Card
+                  id={`card-${project.label}`}
+                  title={project.name}
+                  cover={
+                    <div style={{ textAlign: "center" }}>
+                      <Image
+                        src={project.img}
+                        preview={false}
+                        width="60%"
+                        style={{ margin: "auto" }}
+                      />
+                    </div>
+                  }
+                  hoverable={true}
+                >
                   <Paragraph>{project.description}</Paragraph>
-                </Col>
-                <Col md={8}>
-                  {project.img ? (
-                    <Image
-                      src={project.img}
-                      alt={project.imgAltText ? project.imgAltText : ""}
-                      preview={false}
-                      style={{ maxWidth: "200px" }}
-                    />
-                  ) : (
-                    <div></div>
-                  )}
-                </Col>
-              </Row>
-            </Card>
-          ))}
+                  {project.citationKey && pubs ? (
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: pubs.format("bibliography", {
+                          entry: project.citationKey,
+                          format: "html",
+                        }),
+                      }}
+                    ></p>
+                  ) : null}
+                </Card>
+              </Col>
+            ))}
+          </Row>
         </Content>
         <Footer>Footer</Footer>
       </Layout>
