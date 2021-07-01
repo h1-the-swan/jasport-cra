@@ -123,11 +123,14 @@ const App: React.FC = () => {
       </Helmet>
       <Layout>
         <PageHeader
-          title={<Title>Jason Portenoy, PhD</Title>}
-          tags={tags}
+          title={
+            <Title style={{ fontSize: "5vmax" }}>Jason Portenoy, PhD</Title>
+          }
+          // tags={tags}
           backIcon={false}
           ghost={false}
         >
+          <span>{tags}</span>
           <List>
             <li>jporteno[@]uw[.]edu</li>
             <li>
@@ -156,7 +159,7 @@ const App: React.FC = () => {
         <Content>
           <Row gutter={32}>
             {projects.map((project) => (
-              <Col md={8}>
+              <Col lg={8}>
                 <Card
                   id={`card-${project.label}`}
                   title={project.name}
