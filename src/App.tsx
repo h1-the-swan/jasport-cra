@@ -10,12 +10,19 @@ import {
   Image,
   PageHeader,
   Tag,
+  Divider,
+  Space,
 } from "antd";
+import styled from "styled-components";
 import Cite from "citation-js";
 import "./App.css";
+import thumbHeadshot from "./images/JP_headshot_ischool_jwedit_thumb.jpg";
 import thumbCitationVis from "./images/citationvis_thumb.png";
 import thumbBookStacks from "./images/book_stacks_thumb.jpg";
 import thumbSciSight from "./images/scisight1.png";
+import thumbMathJargon from "./images/dendrogram_mathjargon_thumb.jpg";
+import thumbSankey from "./images/sankey_thumb.png";
+import thumbCortana from "./images/cortana_commitments.png";
 
 const { Header, Footer, Content } = Layout;
 const { Paragraph, Link, Title } = Typography;
@@ -93,7 +100,102 @@ const projects: Project[] = [
       </React.Fragment>
     ),
   },
+  {
+    label: "mathjargon",
+    name: "Mathematical Jargon: Calculating differences between fields",
+    citationKey: "west_delineating_2016",
+    img: thumbMathJargon,
+    description: (
+      <React.Fragment>
+        We analyze the mathematical language used in hundreds of thousands of
+        scientific papers, comparing the use of math across different
+        disciplines. By comparing the distributions of mathematical symbols and
+        terms across fields, we quantify the "jargon barriers" between these
+        fields—the difficulty any two fileds might have communicating based on
+        how different their use of mathematical language is. We find that
+        characterizing fields by their use of mathematical language causes them
+        to group in intuitive ways, and we explore how this approach could be
+        used for recommendations in the scholarly literature, and for helping to
+        bridge knowledge gaps in science.
+      </React.Fragment>
+    ),
+  },
+  {
+    label: "dssg",
+    name: "Predictors of permanent housing for homeless families",
+    img: thumbSankey,
+    description: (
+      <React.Fragment>
+        As a{" "}
+        <Link href="https://escience.washington.edu/dssg/" target="_blank">
+          Data Science for Social Good
+        </Link>{" "}
+        summer fellow at the University of Washington's eScience Institute, I
+        worked on a team collaborating with the Bill and Melinda Gates
+        Foundation and other organizations to help understand and address the{" "}
+        <Link
+          href="http://escience.washington.edu/research-project/predictors-of-permanent-housing-for-homeless-families/"
+          target="_blank"
+        >
+          problem of family homelessness in western Washington state.
+        </Link>{" "}
+        Our contributions included analyzing data, building models, and creating
+        interactive visualizations.
+      </React.Fragment>
+    ),
+  },
+  {
+    label: "commitments",
+    name: "Commitments in written communication",
+    citationKey: "white_automated_2019",
+    img: thumbCortana,
+    description: (
+      <React.Fragment>
+        As an intern at Microsoft Research, I worked on a project to help
+        Microsoft's personal digital assistant, Cortana, identify when people
+        make commitments in their outgoing emails, and understand what kinds of
+        commitments they make.
+      </React.Fragment>
+    ),
+  },
 ];
+
+const StyledLayout = styled(Layout)`
+  background-color: #fff;
+`;
+
+const MyHeader = styled(Header)`
+  background-color: white;
+`;
+
+const MyTitle = styled(Title)`
+  &&& {
+    // padding-top: 50%;
+    font-size: 2em;
+  }
+`;
+
+// const ThumbnailImage = styled(Image)`
+//   margin: auto;
+// `;
+const ThumbnailImage = (props: any) => {
+  return (
+    <div style={{ textAlign: "center" }}>
+      <Image
+        src={props.src}
+        preview={false}
+        width="70%"
+        // style={{ margin: "auto" }}
+      />
+    </div>
+  );
+};
+
+const ThumbnailHeadshot = styled(Image)`
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+`;
 
 const App: React.FC = () => {
   const [pubs, setPubs] = useState<any | null>(null);
@@ -121,78 +223,89 @@ const App: React.FC = () => {
         <meta charSet="utf-8" />
         <title>Jason Portenoy, PhD</title>
       </Helmet>
-      <Layout>
-        <PageHeader
-          title={
-            <Title style={{ fontSize: "5vmax" }}>Jason Portenoy, PhD</Title>
-          }
-          // tags={tags}
-          backIcon={false}
-          ghost={false}
-        >
-          <span>{tags}</span>
-          <List>
-            <li>jporteno[@]uw[.]edu</li>
-            <li>
-              Github:{" "}
-              <Link href="https://github.com/h1-the-swan" target="_blank">
-                h1-the-swan
-              </Link>
-            </li>
-            <li>
-              Twitter:{" "}
-              <Link href="http://twitter.com/jportenoy" target="_blank">
-                @jportenoy
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://www.linkedin.com/in/jason-portenoy/"
-                target="_blank"
-              >
-                LinkedIn
-              </Link>
-            </li>
-          </List>
-        </PageHeader>
+      <StyledLayout>
+        {/* <MyHeader>
+          <MyTitle>Jason Portenoy, PhD</MyTitle>
+        </MyHeader> */}
+        <Row gutter={32}>
+          <Col span={16}>
+            <PageHeader
+              title={<MyTitle>Jason Portenoy, PhD</MyTitle>}
+              // tags={tags}
+              backIcon={false}
+              ghost={false}
+            >
+              <span>{tags}</span>
+              <List>
+                <li>jporteno[@]uw[.]edu</li>
+                <li>
+                  Github:{" "}
+                  <Link href="https://github.com/h1-the-swan" target="_blank">
+                    h1-the-swan
+                  </Link>
+                </li>
+                <li>
+                  Twitter:{" "}
+                  <Link href="http://twitter.com/jportenoy" target="_blank">
+                    @jportenoy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/in/jason-portenoy/"
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </Link>
+                </li>
+              </List>
+            </PageHeader>
+          </Col>
+          <Col span={8}>
+            <Card
+              cover={<ThumbnailImage src={thumbHeadshot} />}
+              bordered={false}
+            ></Card>
+          </Col>
+        </Row>
+        <Divider />
 
         <Content>
           <Row gutter={32}>
             {projects.map((project) => (
-              <Col lg={8}>
+              <Col md={12} lg={8}>
                 <Card
                   id={`card-${project.label}`}
                   title={project.name}
-                  cover={
-                    <div style={{ textAlign: "center" }}>
-                      <Image
-                        src={project.img}
-                        preview={false}
-                        width="60%"
-                        style={{ margin: "auto" }}
-                      />
-                    </div>
-                  }
-                  hoverable={true}
+                  cover={<ThumbnailImage src={project.img} />}
+                  hoverable={false}
+                  bordered={false}
                 >
-                  <Paragraph>{project.description}</Paragraph>
-                  {project.citationKey && pubs ? (
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: pubs.format("bibliography", {
-                          entry: project.citationKey,
-                          format: "html",
-                        }),
-                      }}
-                    ></p>
-                  ) : null}
+                  <Paragraph
+                    ellipsis={{ rows: 4, expandable: true, symbol: "More" }}
+                  >
+                    {project.description}
+                    {project.citationKey && pubs ? (
+                      <>
+                        <Divider style={{ margin: ".5em" }} />
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: pubs.format("bibliography", {
+                              entry: project.citationKey,
+                              format: "html",
+                            }),
+                          }}
+                        ></p>
+                      </>
+                    ) : null}
+                  </Paragraph>
                 </Card>
               </Col>
             ))}
           </Row>
         </Content>
-        <Footer>Footer</Footer>
-      </Layout>
+        {/* <Footer>Footer</Footer> */}
+      </StyledLayout>
     </div>
   );
 };
