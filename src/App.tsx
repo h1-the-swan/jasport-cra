@@ -63,20 +63,18 @@ const projects: Project[] = [
   },
   {
     label: "scisight",
-    name: "SciSight",
+    name: "SciSight / Bridger",
     citationKey: "hope_scisight_2020",
     img: thumbSciSight,
     description: (
       <React.Fragment>
-        We extend the SciSight literature visualization platform to support
-        exploratory search over the network of scholarly collaborations in
-        computer science, gleaned from a corpus of 10M papers. We represent
-        authors with author cards displaying the main tasks, methods, materials
-        and metrics extracted from their papers. We embed each extracted facet
-        with a language model tuned for semantic similarity, allowing us to find
-        interesting relations and gaps across authors and research groups: for
-        example, showing authors who work on similar problems, but use very
-        different methods.
+        Scientific silos can hinder innovation. These information "filter
+        bubbles" and the growing challenge of information overload limit
+        awareness across the literature, making it difficult to keep track of
+        even narrow areas of interest, let alone discover new ones.
+        SciSight/Bridger is a project focused on facilitating discovery of
+        scholars and their work, by locating commonalities and contrasts between
+        scientists.
       </React.Fragment>
     ),
   },
@@ -102,7 +100,7 @@ const projects: Project[] = [
   },
   {
     label: "mathjargon",
-    name: "Mathematical Jargon: Calculating differences between fields",
+    name: "Mathematical Jargon",
     citationKey: "west_delineating_2016",
     img: thumbMathJargon,
     description: (
@@ -171,7 +169,13 @@ const MyHeader = styled(Header)`
 const MyTitle = styled(Title)`
   &&& {
     // padding-top: 50%;
-    font-size: 2em;
+    font-size: 2.5em;
+  }
+
+  @media screen and (max-width: 800px) {
+    &&& {
+      font-size: 1.5em;
+    }
   }
 `;
 
@@ -184,7 +188,7 @@ const ThumbnailImage = (props: any) => {
       <Image
         src={props.src}
         preview={false}
-        width="70%"
+        width="60%"
         // style={{ margin: "auto" }}
       />
     </div>
@@ -228,7 +232,7 @@ const App: React.FC = () => {
           <MyTitle>Jason Portenoy, PhD</MyTitle>
         </MyHeader> */}
         <Row gutter={32}>
-          <Col span={16}>
+          <Col sm={16}>
             <PageHeader
               title={<MyTitle>Jason Portenoy, PhD</MyTitle>}
               // tags={tags}
@@ -261,7 +265,7 @@ const App: React.FC = () => {
               </List>
             </PageHeader>
           </Col>
-          <Col span={8}>
+          <Col sm={8}>
             <Card
               cover={<ThumbnailImage src={thumbHeadshot} />}
               bordered={false}
@@ -271,12 +275,17 @@ const App: React.FC = () => {
         <Divider />
 
         <Content>
+          <Title level={2}>Projects</Title>
           <Row gutter={32}>
             {projects.map((project) => (
               <Col md={12} lg={8}>
                 <Card
                   id={`card-${project.label}`}
-                  title={project.name}
+                  title={
+                    <Title ellipsis={true} level={4}>
+                      {project.name}
+                    </Title>
+                  }
                   cover={<ThumbnailImage src={project.img} />}
                   hoverable={false}
                   bordered={false}

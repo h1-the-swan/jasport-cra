@@ -4,3 +4,11 @@
   max-width: 1800px;
   margin: auto;
 }
+
+@media screen and (min-width: 450px) {
+  .App {
+    background-color: red !important;
+    font-size: 75em!important;
+  }
+}
+
