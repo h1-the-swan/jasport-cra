@@ -129,6 +129,14 @@ const App: React.FC = () => {
               <List>
                 <li>jporteno[@]uw[.]edu</li>
                 <li>
+                  <Link
+                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20210708.pdf`}
+                    target="_blank"
+                  >
+                    Resume (one-pager)
+                  </Link>
+                </li>
+                <li>
                   Github:{" "}
                   <Link href="https://github.com/h1-the-swan" target="_blank">
                     h1-the-swan
