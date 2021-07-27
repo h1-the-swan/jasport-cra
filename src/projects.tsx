@@ -2,6 +2,7 @@ import React from "react";
 import thumbCitationVis from "./images/citationvis_thumb.png";
 import thumbBookStacks from "./images/book_stacks_thumb.jpg";
 import thumbSciSight from "./images/scisight1.png";
+import thumbInfomap from "./images/infomap_diagram_thumb.jpg";
 import thumbCoauthor from "./images/coauthorship_thumb.png";
 import thumbMathJargon from "./images/dendrogram_mathjargon_thumb.jpg";
 import thumbSankey from "./images/sankey_thumb.png";
@@ -56,6 +57,33 @@ export const projects: Project[] = [
         SciSight/Bridger is a project focused on facilitating discovery of
         scholars and their work, by locating commonalities and contrasts between
         scientists.
+      </React.Fragment>
+    ),
+  },
+  {
+    label: "scaling",
+    name: "Community detection on large networks",
+    img: thumbInfomap,
+    description: (
+      <React.Fragment>
+        Community detection, or clustering, algorithms can reveal patterns and
+        relationships in complex citation networks. There are many algorithms
+        available that can be used to detect communities in networks,
+        representing several different approaches to the problem. These
+        algorithms are often computationally difficult and with the continually
+        increasing number of publications, the challenge is to adapt these
+        algorithms to very large networks. To address these issues, I have
+        developed new methods to cluster very large citation networks. Using
+        several parallel processing techniques, I am able to perform clustering
+        on networks with hundreds of millions of publications and over 1 billion
+        citation links. The code is available on{" "}
+        <Link
+          href="https://github.com/h1-the-swan/infomap_large_network"
+          target="_blank"
+        >
+          github
+        </Link>
+        .
       </React.Fragment>
     ),
   },
