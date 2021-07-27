@@ -2,6 +2,7 @@ import React from "react";
 import thumbCitationVis from "./images/citationvis_thumb.png";
 import thumbBookStacks from "./images/book_stacks_thumb.jpg";
 import thumbSciSight from "./images/scisight1.png";
+import thumbCoauthor from "./images/coauthorship_thumb.png";
 import thumbMathJargon from "./images/dendrogram_mathjargon_thumb.jpg";
 import thumbSankey from "./images/sankey_thumb.png";
 import thumbCortana from "./images/cortana_commitments.png";
@@ -77,6 +78,25 @@ export const projects: Project[] = [
         visualize the influence of collections of papers. These collections can
         represent, for example, individual scholars, or journals, academic
         departments, or fields of study.
+      </React.Fragment>
+    ),
+  },
+  {
+    label: "misinfo",
+    name: "Mapping Misinformation Research",
+    img: thumbCoauthor,
+    description: (
+      <React.Fragment>
+        I applied tools for visualizing and analyzing the research publications
+        in the emerging fields of Misinformation and Science Communication.
+        Starting with sets of seed papers representing some key recent research
+        in these fields, I provided tools to examine author relationships,
+        influence from outside fields, and related research identified by
+        machine learning. These tools are collected at{" "}
+        <Link href="http://www.misinformationresearch.org" target="_blank">
+          misinformationresearch.org
+        </Link>
+        , as part of a report for the National Academy of Sciences.
       </React.Fragment>
     ),
   },
