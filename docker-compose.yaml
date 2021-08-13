@@ -1,0 +1,14 @@
+version: '3'
+services:
+    ui:
+        build: ./
+        # We can't mount the entire UI directory, since JavaScript dependencies
+        # (`node_modules`) live at that location.
+        volumes:
+            - ./src:/usr/local/src/app/ui/src
+            - ./public:/usr/local/src/app/ui/public
+            - ./package.json:/usr/local/src/app/ui/package.json
+            - ./tsconfig.json:/usr/local/src/app/ui/tsconfig.json
+            - ./yarn.lock:/usr/local/src/app/ui/yarn.lock
+        ports:
+            - 3000:3000
