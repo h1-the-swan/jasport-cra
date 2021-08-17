@@ -45,8 +45,8 @@ export const projects: Project[] = [
   {
     label: "scisight",
     name: "SciSight / Bridger",
-    citationKey: "hope_scisight_2020",
-    citationURL: "https://arxiv.org/abs/2005.12668",
+    citationKey: "portenoy_bridger_2021",
+    citationURL: "http://arxiv.org/abs/2108.05669",
     img: thumbSciSight,
     description: (
       <React.Fragment>
