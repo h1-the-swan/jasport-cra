@@ -11,6 +11,7 @@ Uses typescript.
 	- [Development](#development)
 	- [Deployment](#deployment)
 	- [Developing in WSL](#developing-in-wsl)
+	- [Developing with Docker](#developing-with-docker)
 
 ## Getting started
 
@@ -51,3 +52,14 @@ If developing in WSL2 (Windows Subsystem for Linux), using `localhost` might not
 In this case, use the command `ip addr`, locate the entry for `eth0`, and copy the IP address
 you find after `inet`, excluding the forward slash and anything that comes after.
 Use this IP address instead of `localhost` (e.g., `http://172.29.129.222:3000`).
+
+## Developing with Docker
+
+In the base directory, run:
+
+```
+docker-compose up --build
+```
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
