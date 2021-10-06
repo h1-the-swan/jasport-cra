@@ -130,7 +130,7 @@ const App: React.FC = () => {
                 <a href="mailto: jason@jasport.org">✉ jason@jasport.org</a>
                 <li>
                   <Link
-                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20210708.pdf`}
+                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20211006.pdf`}
                     target="_blank"
                   >
                     🗎 Resume (one-pager)
