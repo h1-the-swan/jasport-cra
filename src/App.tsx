@@ -133,7 +133,15 @@ const App: React.FC = () => {
                     href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20211006.pdf`}
                     target="_blank"
                   >
-                    🗎 Resume (one-pager)
+                    📄 Resume (one-pager)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_CV20211021.pdf`}
+                    target="_blank"
+                  >
+                    📜 Full CV
                   </Link>
                 </li>
                 <li>
