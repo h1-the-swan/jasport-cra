@@ -127,7 +127,9 @@ const App: React.FC = () => {
             >
               <span>{tags}</span>
               <List>
-                <a href="mailto: jason@jasport.org">✉ jason@jasport.org</a>
+                <a href="mailto: jason.portenoy@gmail.com">
+                  ✉ jason.portenoy@gmail.com
+                </a>
                 <li>
                   <Link
                     href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20211006.pdf`}
