@@ -7,6 +7,7 @@ services:
         volumes:
             - ./src:/usr/local/src/app/ui/src
             - ./public:/usr/local/src/app/ui/public
+            - ./build:/usr/local/src/app/ui/build
             - ./package.json:/usr/local/src/app/ui/package.json
             - ./tsconfig.json:/usr/local/src/app/ui/tsconfig.json
             - ./yarn.lock:/usr/local/src/app/ui/yarn.lock
