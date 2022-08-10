@@ -13,3 +13,18 @@ services:
             - ./yarn.lock:/usr/local/src/app/ui/yarn.lock
         ports:
             - 3000:3000
+#     proxy:
+#         image: nginx:latest
+#         # restart: unless-stopped
+#         volumes:
+#             - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+#         ports:
+#             - 3000:80
+#         depends_on:
+#             - ui
+#         networks:
+#             - proxy-tier
+#             - default
+
+# networks:
+#     proxy-tier:

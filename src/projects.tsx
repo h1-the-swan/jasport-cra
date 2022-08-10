@@ -7,6 +7,7 @@ import thumbCoauthor from "./images/coauthorship_thumb.png";
 import thumbMathJargon from "./images/dendrogram_mathjargon_thumb.jpg";
 import thumbSankey from "./images/sankey_thumb.png";
 import thumbCortana from "./images/cortana_commitments.png";
+import thumbGrantExplorer from "./images/grantexplorer_thumb.png";
 import { Typography } from "antd";
 const { Paragraph, Link, Title } = Typography;
 
@@ -45,8 +46,8 @@ export const projects: Project[] = [
   {
     label: "scisight",
     name: "SciSight / Bridger",
-    citationKey: "portenoy_bridger_2021",
-    citationURL: "http://arxiv.org/abs/2108.05669",
+    citationKey: "portenoy_bursting_2022",
+    citationURL: "https://arxiv.org/pdf/2108.05669.pdf",
     img: thumbSciSight,
     description: (
       <React.Fragment>
@@ -56,7 +57,38 @@ export const projects: Project[] = [
         even narrow areas of interest, let alone discover new ones.
         SciSight/Bridger is a project focused on facilitating discovery of
         scholars and their work, by locating commonalities and contrasts between
-        scientists.
+        scientists. This work was published in the CHI 2022 conference.{" "}
+        <Link
+          href="https://dl.acm.org/doi/10.1145/3491102.3501905#sec-supp"
+          target="_blank"
+        >
+          Video of the presentation can be found here.
+        </Link>{" "}
+        I am continuing to develop these methods to deploy them in a production
+        setting.
+      </React.Fragment>
+    ),
+  },
+  {
+    label: "grantexplorer",
+    name: "GrantExplorer",
+    img: thumbGrantExplorer,
+    description: (
+      <React.Fragment>
+        <Link href="https://www.grantexplorer.org/" target="_blank">
+          GrantExplorer
+        </Link>{" "}
+        is a free, open-source tool for examining the phrases funded by U.S.
+        federal agencies. This includes more than a half-million grants from the
+        National Science Foundation (NSF), National Institutes of Health (NIH),
+        and Department of Defense (DoD). The tool uses React, D3, and FastAPI
+        for interactive visualizations, and Elasticsearch and Gensim language
+        models to intelligently assist with keyword queries. The source code is
+        available{" "}
+        <Link href="https://github.com/jessecoleman/nsf-viz" target="_blank">
+          on GitHub
+        </Link>
+        .
       </React.Fragment>
     ),
   },
@@ -76,12 +108,12 @@ export const projects: Project[] = [
         developed new methods to cluster very large citation networks. Using
         several parallel processing techniques, I am able to perform clustering
         on networks with hundreds of millions of publications and over 1 billion
-        citation links. The code is available on{" "}
+        citation links. The code is available{" "}
         <Link
           href="https://github.com/h1-the-swan/infomap_large_network"
           target="_blank"
         >
-          github
+          on GitHub
         </Link>
         .
       </React.Fragment>
