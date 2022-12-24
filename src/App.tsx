@@ -132,7 +132,7 @@ const App: React.FC = () => {
                 </a>
                 <li>
                   <Link
-                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20220720.pdf`}
+                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_resume20221213.pdf`}
                     target="_blank"
                   >
                     📄 Resume (one-pager)
@@ -140,7 +140,7 @@ const App: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_CV20220720.pdf`}
+                    href={`${process.env.PUBLIC_URL}/JasonPortenoy_CV20221207.pdf`}
                     target="_blank"
                   >
                     📜 Full CV
@@ -150,6 +150,14 @@ const App: React.FC = () => {
                   GitHub:{" "}
                   <Link href="https://github.com/h1-the-swan" target="_blank">
                     h1-the-swan
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://stackoverflow.com/users/6794572/h1-the-swan"
+                    target="_blank"
+                  >
+                    Stack Overflow
                   </Link>
                 </li>
                 <li>
